@@ -98,6 +98,14 @@ Bash
 npm run test:android
 Ao executar este script, o WebdriverIO inicializa o servidor do Appium automaticamente em segundo plano, conecta-se ao emulador ativo, instala/atualiza o APK, injeta iterativamente a massa de dados do arquivo usuarios.json e finaliza a sessão gerando os logs.
 
+Como rodar uma features de cada vez
+- npm run test:android -- --spec ./tests/features/login.feature
+- npm run test:android -- --spec ./tests/features/AuthenticationFlowIntegration.feature
+- npm run test:android -- --spec ./tests/features/signup.feature
+
+Como rodar TODAS as features de uma vez
+- npm run test:android -- --spec ./tests/features/*.feature
+
 📊 Geração de Evidências e Relatórios (Allure Report)
 Atendendo às exigências técnicas de auditoria e relatórios funcionais contidas no desafio do Carrefour, o projeto utiliza o Allure Report integrado. Através do gancho (hook) de ciclo de vida afterTest configurado em config/wdio.android.conf.js, capturas de tela (screenshots) são coletadas automaticamente em cenários de falhas técnicas.
 
@@ -126,30 +134,23 @@ Gera o relatório analítico do Allure e exporta os logs juntamente com os arqui
 
 
 O arquivo está pronto, muito bem detalhado tanto para o uso de interface visual quanto para o uso avançado via linha de comando (CLI) que você executou!
-# Appium Boilerplate
 
-
-> [!NOTE]
-> This boilerplate is for Webdriver V8 where the tests are written with `async`/`await` and TypeScript. If you need a boilerplate for older versions, check the following:
->
-> - V7 (JavaScript) please click [here](https://github.com/webdriverio/appium-boilerplate/tree/v7)
-> - V7 (TypeScript, sync mode) please click [here](https://github.com/webdriverio/appium-boilerplate/tree/sync-mode)
-
-Boilerplate project to run Appium tests together with WebdriverIO for:
+# Appium 
+This project to run Appium tests together with WebdriverIO for:
 
 - iOS/Android Native Apps
 - iOS/Android Hybrid Apps
 - Android Chrome and iOS Safari browser ([check here](./README.md#automating-chrome-or-safari))
 
 > [!IMPORTANT]
-> This boilerplate uses the WebdriverIO native demo app which can be found [here](https://github.com/webdriverio/native-demo-app).
+> This project uses the WebdriverIO native demo app which can be found [here](https://github.com/webdriverio/native-demo-app).
 
 > [!NOTE]
-> This boilerplate only handles local execution on 1 em/simulator at a time, not parallel execution. For more info about that Google on setting up a grid with Appium.
+> This Project only handles local execution on 1 em/simulator at a time, not parallel execution. For more info about that Google on setting up a grid with Appium.
 
 ## Based on
 
-This boilerplate is currently based on:
+This Project is currently based on:
 
 - **WebdriverIO:** `9.x`
 - **Appium:** `3.x`
@@ -197,7 +198,7 @@ Choose one of the following options:
 
 ## Configuration files
 
-This boilerplate uses a specific config for iOS and Android, see [configs](./config). The configs are based on a shared config
+This Project uses a specific config for iOS and Android, see [configs](./config). The configs are based on a shared config
 [`wdio.shared.conf.ts`](./config/wdio.shared.conf.ts).
 This shared config holds **all the defaults** so the iOS and Android configs only need to hold the capabilities and specs that are needed for running on iOS and or Android (app or browser).
 
@@ -212,8 +213,8 @@ The Appium Inspector is a powerful tool that allows you to inspect and interact 
 ### Prerequisites
 
 - Node modules must be installed (`npm install`)
-- The appium server and needed drivers (already included in this boilerplate)
-- The `appium-inspector-plugin` package (already included in this boilerplate)
+- The appium server and needed drivers (already included in this Project)
+- The `appium-inspector-plugin` package (already included in this Project)
 
 ### Usage
 
@@ -237,7 +238,7 @@ npx start-appium-inspector --port 4725
 
 ### Capabilities Configuration
 
-When using the Appium Inspector, you'll need to configure capabilities that match your target device and app. Here are examples based on this boilerplate's configuration:
+When using the Appium Inspector, you'll need to configure capabilities that match your target device and app. Here are examples based on this project configuration:
 
 #### Android Capabilities Example
 ```json
@@ -285,7 +286,7 @@ For more detailed information about using the Appium Inspector, visit the [offic
 
 ## Locator strategy for native apps
 
-The locator strategy for this boilerplate is to use `accessibilityID`s, see also the
+The locator strategy for this project is to use `accessibilityID`s, see also the
 [WebdriverIO docs](https://webdriver.io/docs/selectors#accessibility-id) or this newsletter on [AppiumPro](https://appiumpro.com/editions/20).
 `accessibilityID`s makes it easy to script once and run on iOS and Android because most of the apps already have some `accessibilityID`s.
 
@@ -316,7 +317,7 @@ npm run ios.app
 
 ### Drag And Drop
 
-Drag-and-drop an element can be a complex gesture to automate with Appium. The demo app has a simple puzzle that hopefully makes it easier and fun to understand how to implement a drag-and-drop in WebdriverIO. The test can be found [here](./tests/specs/app.drag.and.drop.spec.ts). As you can see this boilerplate uses the enhanced [`driver.dragAndDrop()`](https://webdriver.io/docs/api/mobile/dragAndDrop)-method which makes it really easy for you to drag elements in native apps.
+Drag-and-drop an element can be a complex gesture to automate with Appium. The demo app has a simple puzzle that hopefully makes it easier and fun to understand how to implement a drag-and-drop in WebdriverIO. The test can be found [here](./tests/specs/app.drag.and.drop.spec.ts). As you can see this project uses the enhanced [`driver.dragAndDrop()`](https://webdriver.io/docs/api/mobile/dragAndDrop)-method which makes it really easy for you to drag elements in native apps.
 
 ```sh
 # For Android local execution
@@ -349,7 +350,7 @@ npm run ios.app -- --spec=tests/specs/app.forms.spec.ts
 
 ### Login with Biometric support
 
-The Login screen holds a simple implementation of a Login and SignUp form. This boilerplate holds 2 different test files for the Login screen.
+The Login screen holds a simple implementation of a Login and SignUp form. This project holds 2 different test files for the Login screen.
 
 - [Default Login/Sign Up](./tests/specs/app.login.spec.ts)
 - [Login through Touch-/FaceID or FingerPrint (Biometric Support)](./tests/specs/app.biometric.login.spec.ts)
@@ -373,7 +374,7 @@ npm run ios.app -- --spec=tests/specs/app.biometric.login.spec.ts
 
 ### Navigation
 
-There are 2 types of navigation tests explained in this boilerplate.
+There are 2 types of navigation tests explained in this project.
 
 1. [Tab Bar](./tests/specs/app.tab.bar.navigation.spec.ts)
 1. [Deep Links](./tests/specs/app.deep.link.navigation.spec.ts)
@@ -421,7 +422,7 @@ npm run ios.app -- --spec=tests/specs/app.swipe.spec.ts
 
 ### WebViews
 
-The app has a WebView that will automatically load the WebdriverIO documentation page. This boilerplate holds 2 test files:
+The app has a WebView that will automatically load the WebdriverIO documentation page. This project holds 2 test files:
 
 1. [Interact within a WebView with CSS Selectors](./tests/specs/app.webview.spec.ts).
    *You will also find a test that interacts between a WebView and the Native part of the app.*
@@ -469,48 +470,6 @@ Mobile web automation is almost the same as writing tests for desktop browsers. 
 For Android be sure that the latest version of Chrome is installed, see also
 [here](./docs/FAQ.md#i-get-the-error-no-chromedriver-found-that-can-automate-chrome-). Our [`wdio.shared.local.appium.conf.ts`](./config/wdio.shared.local.appium.conf.ts) uses the `relaxedSecurity: true` argument from Appium which will allow Appium to automatically download the latest ChromeDriver.
 
-For this boilerplate, the test cases from the Jasmine boilerplate, created by [Christian Bromann](https://github.com/christian-bromann), are used.
-
-## Cloud vendors
-
-### Sauce Labs
-
-If you want to run the Native App tests on Sauce Labs you need to do 2 things:
-
-- Add the [Sauce Service](#add-sauce-service) to your project
-- Upload the apps to the [Sauce Labs Storage](#upload-apps-to-sauce-storage)
-
-When the above has been executed you can follow the steps:
-
-- [Run app tests on the Sauce Labs Real Device Cloud](#run-app-tests-on-the-sauce-labs-real-device-cloud)
-- [Run app tests on the Sauce Labs Emulators and Simulators](#run-app-tests-on-the-sauce-labs-emulators-and-simulators)
-
-#### Add Sauce Service
-
-Make sure you install the latest version of the `@wdio/sauce-service` with
-
-```shell
-npm install --save-dev @wdio/sauce-service
-```
-
-and add `services: ['sauce'],` to the config. If no `region` is provided it will automatically default to the US-Virtual/RDC cloud.
-If you provide `region: 'us'` or `region: 'eu'` it will connect to the US or the EU Virtual/RDC cloud.
-
-#### Upload apps to Sauce Storage
-
-If you want to use Android emulators, iOS simulators or Android real devices in the Sauce Labs UI you need to upload the apps to the Sauce Storage. You can find a script to upload them to, and the US, and EU DC in [this](./scripts) folder. You can push the files to the storage by executing the following steps in a terminal from the root of this project:
-
-```sh
-cd scripts
-./push_apps_to_sauce_storage.sh
-```
-
-When you've done that you will see a lot of successful logs in your terminal.
-
-#### Run app tests on the Sauce Labs Real Device Cloud
-
-> ![NOTE]
-> Due to the lack of signing iOS apps, this boilerplate doesn't support Real Devices.  Only Android Real Devices are supported. If you want to use iOS Real Devices then you need to provide your own app that has been signed properly.
 
 Please check the [Android Real Devices](./config/wdio.android.app.conf.ts)-config to see the setup for Android real devices.
 
@@ -554,7 +513,7 @@ npm run ios.sauce.simulator.app.us
 
 ### BrowserStack
 
-This boilerplate provides a setup for testing with BrowserStack. Please check the [BrowserStack](./config/browserstack) folder to see the setup for iOS and Android.
+This project provides a setup for testing with BrowserStack. Please check the [BrowserStack](./config/browserstack) folder to see the setup for iOS and Android.
 
 Make sure you install the latest version of the `@wdio/browserstack-service` with:
 
@@ -574,7 +533,7 @@ $ npm run android.browserstack.app
 
 ### TestingBot
 
-This boilerplate provides a setup for testing with TestingBot. Please check the [TestingBot](./config/testingbot)-folder to see the setup for Android.
+This project provides a setup for testing with TestingBot. Please check the [TestingBot](./config/testingbot)-folder to see the setup for Android.
 
 Make sure you install the latest version of the `@wdio/testingbot-service` with
 
@@ -590,7 +549,7 @@ $ npm run android.testingbot.app
 
 ### LambdaTest
 
-This boilerplate provides a setup for testing with LambdaTest.
+This project provides a setup for testing with LambdaTest.
 Please check the [LambdaTest](./config/lambdatest) folder to see the setup for iOS and Android.
 
 Make sure you install the latest version of the `wdio-lambdatest-service` with:

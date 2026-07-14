@@ -26,8 +26,12 @@
   ],
   "type": "module",
   "scripts": {
+    "test:android": "wdio run ./config/wdio.android.conf.js",
+    "test:ios": "wdio run ./config/wdio.ios.conf.js",
     "android.app": "wdio run config/wdio.android.app.conf.ts",
     "android.browser": "wdio run config/wdio.android.browser.conf.ts",
+    "ios.app": "wdio run config/wdio.ios.app.conf.ts",
+    "ios.browser": "wdio run config/wdio.ios.browser.conf.ts",
     "android.browserstack.app": "wdio run config/browserstack/wdio.android.bs.app.conf.ts",
     "android.lt.browser.emulator": "wdio run config/lambdatest/wdio.android.emulator.browser.conf.ts",
     "android.lt.browser.realdevice": "wdio run config/lambdatest/wdio.android.realdevice.browser.conf.ts",
@@ -37,8 +41,6 @@
     "android.sauce.rdc.app.eu": "REGION=eu wdio run config/saucelabs/wdio.android.rdc.app.conf.ts",
     "android.sauce.rdc.app.us": "wdio run config/saucelabs/wdio.android.rdc.app.conf.ts",
     "android.testingbot.app": "wdio run config/testingbot/wdio.android.tb.app.conf.ts",
-    "ios.app": "wdio run config/wdio.ios.app.conf.ts",
-    "ios.browser": "wdio run config/wdio.ios.browser.conf.ts",
     "ios.lt.browser.simulator": "wdio run config/lambdatest/wdio.ios.simulator.browser.conf.ts",
     "ios.lt.browser.realdevice": "wdio run config/lambdatest/wdio.ios.realdevice.browser.conf.ts",
     "ios.sauce.simulators.app.eu": "REGION=eu wdio run config/saucelabs/wdio.ios.simulators.app.conf.ts",
@@ -46,12 +48,13 @@
     "browser": "wdio run config/wdio.browser.conf.ts",
     "test:local": "wdio run config/wdio.android.app.conf.ts",
     "lint": "eslint config tests",
-    "appium:inspector": "npx start-appium-inspector"
+    "appium:inspector": "npx start-appium-inspector",
+    "wdio": "wdio run ./wdio.conf.js"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
     "@typescript-eslint/eslint-plugin": "^8.50.1",
     "@typescript-eslint/parser": "^8.50.1",
-
     "@wdio/appium-service": "^9.29.1",
     "@wdio/browserstack-service": "^9.29.1",
     "@wdio/cli": "^9.29.1",
@@ -61,17 +64,18 @@
     "@wdio/sauce-service": "^9.29.1",
     "@wdio/spec-reporter": "^9.29.1",
     "@wdio/testingbot-service": "^9.29.1",
-
+    "@wdio/visual-service": "^10.1.0",
     "appium": "^3.1.2",
     "appium-inspector-plugin": "^2025.11.1",
-    "appium-uiautomator2-driver": "^6.7.6",
-    "appium-xcuitest-driver": "10.13.2",
-
+    "appium-uiautomator2-driver": "^6.9.3",
+    "appium-xcuitest-driver": "^10.13.2",
     "eslint-plugin-wdio": "^9.29.1",
-
+    "expect-webdriverio": "^5.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
-
     "wdio-lambdatest-service": "^4.0.1"
+  },
+  "dependencies": {
+    "expo": "^57.0.4"
   }
 }

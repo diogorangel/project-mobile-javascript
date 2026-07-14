@@ -17,7 +17,7 @@ export const config: WebdriverIO.Config = {
     // 🔥 FORÇA O WEBDRIVERIO A NÃO ENVIAR CABEÇALHOS DUPLEX (Evita UND_ERR_INVALID_ARG no Windows)
     queryParams: {},
 
-    specs: ["../tests/specs/**/app*.spec.ts"],
+    specs: ['../tests/features/**/*.feature'],
 
     capabilities: [
         {
