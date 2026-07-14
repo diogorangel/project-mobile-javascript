@@ -99,12 +99,13 @@ npm run test:android
 Ao executar este script, o WebdriverIO inicializa o servidor do Appium automaticamente em segundo plano, conecta-se ao emulador ativo, instala/atualiza o APK, injeta iterativamente a massa de dados do arquivo usuarios.json e finaliza a sessão gerando os logs.
 
 Como rodar uma features de cada vez
-- npm run test:android -- --spec ./tests/features/login.feature
-- npm run test:android -- --spec ./tests/features/AuthenticationFlowIntegration.feature
-- npm run test:android -- --spec ./tests/features/signup.feature
+- npm run test:local -- --spec ./tests/features/login.feature ; npx allure generate --clean allure-results ; npx allure open
+- npm run test:local -- --spec ./tests/features/login.feature
+- npm run test:local -- --spec ./tests/features/AuthenticationFlowIntegration.feature
+- npm run test:local -- --spec ./tests/features/signup.feature
 
 Como rodar TODAS as features de uma vez
-- npm run test:android -- --spec ./tests/features/*.feature
+- npm run test:local -- --spec ./tests/features/*.feature
 
 📊 Geração de Evidências e Relatórios (Allure Report)
 Atendendo às exigências técnicas de auditoria e relatórios funcionais contidas no desafio do Carrefour, o projeto utiliza o Allure Report integrado. Através do gancho (hook) de ciclo de vida afterTest configurado em config/wdio.android.conf.js, capturas de tela (screenshots) são coletadas automaticamente em cenários de falhas técnicas.
