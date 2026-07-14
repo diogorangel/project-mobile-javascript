@@ -1,7 +1,7 @@
-# 📱 Desafio de Automação Mobile - Banco Carrefour
+# 📱Automação Mobile
 Author : Diogo Rangel (diogorangel - https://github.com/diogorangel)
 
-Este projeto contém a automação de testes funcionais para o aplicativo móvel **native-demo-app** do WebDriverIO. O objetivo principal é validar fluxos críticos de negócio (como autenticação e navegação) no ambiente móvel, assegurando a qualidade e a estabilidade das entregas funcionais de acordo com os critérios técnicos exigidos pelo Banco Carrefour.
+Este projeto contém a automação de testes funcionais para o aplicativo móvel **native-demo-app** do WebDriverIO. O objetivo principal é validar fluxos críticos de negócio (como autenticação e navegação) no ambiente móvel, assegurando a qualidade e a estabilidade das entregas funcionais de acordo com os critérios técnicos.
 
 ---
 
