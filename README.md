@@ -159,7 +159,7 @@ This boilerplate is currently based on:
 1. Clone this project by running
 
 ```sh
-git clone https://github.com/webdriverio/appium-boilerplate.git
+git clone https://github.com/diogorangel/project-mobile-javascript.git
 ```
 
 2. Install all dependencies
@@ -169,7 +169,7 @@ npm install
 ```
 
 > [!TIP]
-> Use the [appium-installer](https://github.com/AppiumTestDistribution/appium-installer) package to setup Appium on your local machine. This will also help you configure Android Emulators/ iOS Simulators.
+> Use the [appium-installer](https://github.com/diogorangel/project-mobile-javascript.git) package to setup Appium on your local machine. This will also help you configure Android Emulators/ iOS Simulators.
 
 > [!NOTE]
 > You don't need Appium installed on you local machine When running test in a cloud
@@ -189,7 +189,7 @@ npm install
 
 Choose one of the following options:
 
-1. Clone the git repo — `git clone https://github.com/webdriverio/appium-boilerplate.git`
+1. Clone the git repo — `git clone https://github.com/diogorangel/project-mobile-javascript.git`
 1. Copy the files to your project directory (all files in `/tests` and the `wdio.conf` files in the `config` folder)
 1. Merge project dev dependencies with your project dev dependencies in your `package.json`
 1. Merge the scripts to your `package.json` scripts
