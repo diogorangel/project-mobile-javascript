@@ -69,6 +69,9 @@ O terminal deverá retornar o nome: Android_Carrefour.
 3. Iniciar o Emulador na Tela ⚡
 Para dar o "boot" e ligar o telemóvel virtual, execute o comando abaixo:
 
+Criar:
+& "$env:USERPROFILE\AppData\Local\Android\Sdk\cmdline-tools\latest\bin\avdmanager.bat" create avd -n Android_Carrefour -k "system-images;android-33;google_apis;x86_64"
+
 PowerShell
 & "$env:USERPROFILE\AppData\Local\Android\Sdk\emulator\emulator.exe" -avd Android_Carrefour
 
