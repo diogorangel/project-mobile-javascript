@@ -30,7 +30,7 @@ jobs:
         with:
           api-level: 33 # Android 13
           target: google_apis
-          arch: x86_64
+          arch: arm64-v8a
           profile: pixel_6
           disable-animations: true
           # O comando exato que usamos localmente para rodar a sua feature!
