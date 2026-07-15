@@ -1,0 +1,49 @@
+name: Mobile E2E Tests (Android)
+
+# Configura o pipeline para rodar automaticamente ao fazer push na branch main
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  android-test:
+    
+    runs-on: macos-latest 
+
+    steps:
+      - name: 📥 Baixar o código do repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Versão baseada no seu package.json
+
+      - name: 📦 Instalar Dependências do Projeto
+        run: npm install
+
+      - name: 📱 Iniciar Emulador e Executar os Testes
+        # Esta action oficial do Android sobe um emulador limpo e executa o nosso comando
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33 # Android 13
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          # O comando exato que usamos localmente para rodar a sua feature!
+          script: npm run test:local -- --spec ./tests/features/login.feature
+
+      - name: 📊 Gerar Relatório do Allure
+        if: always() # Garante que o relatório seja gerado mesmo se o teste falhar
+        run: npx allure generate --clean allure-results
+
+      - name: 💾 Salvar Relatório como Artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-android
+          path: allure-report/
+          retention-days: 7v

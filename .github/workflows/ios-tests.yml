@@ -1,0 +1,41 @@
+name: Mobile E2E Tests (iOS)
+
+# Executa em paralelo com o Android ao fazer push na branch main
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  ios-test:
+    # Obrigatório para iOS: usar um servidor macOS com Xcode
+    runs-on: macos-latest 
+
+    steps:
+      - name: 📥 Baixar o código do repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Baseado no seu package.json
+
+      - name: 📦 Instalar Dependências do Projeto
+        run: npm install
+
+      - name: 🍎 Executar Testes no Simulador iOS
+       
+        run: npm run ios.app -- --spec ./tests/features/login.feature
+
+      - name: 📊 Gerar Relatório do Allure
+        if: always() # Garante a geração do relatório mesmo se o teste falhar
+        run: npx allure generate --clean allure-results
+
+      - name: 💾 Salvar Relatório como Artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-ios
+          path: allure-report/
+          retention-days: 7s
