@@ -1,6 +1,6 @@
 {
   "name": "project-mobile-javascript",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "author": "Diogo Rangel <diodam.rangel@gmail.com>",
   "license": "MIT",
   "description": "Project to run WebdriverIO tests with Appium to test native applications on iOS and Android",

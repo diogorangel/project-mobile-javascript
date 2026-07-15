@@ -5,7 +5,7 @@ const isGhActions = process.env.GITHUB_ACTION;
 
 export const config: WebdriverIO.Config = {
     ...baseConfig,
-
+    services: ['appium'],
     // ====================
     // Framework (Cucumber)
     // ====================
